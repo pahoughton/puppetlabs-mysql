@@ -5,5 +5,4 @@ class mysql::server::install {
     ensure => $mysql::server::package_ensure,
     name   => $mysql::server::package_name,
   }
-
 }
