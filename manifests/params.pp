@@ -28,17 +28,19 @@ class mysql::params {
       if $::operatingsystem == 'Fedora' and (is_integer($::operatingsystemrelease) and $::operatingsystemrelease >= 19 or $::operatingsystemrelease == "Rawhide") {
         $client_package_name = 'mariadb'
         $server_package_name = 'mariadb-server'
+        $log_error           = '/var/log/mariadb/mariadb.log'
+        $server_service_name = 'mariadb'
       } else {
         $client_package_name = 'mysql'
         $server_package_name = 'mysql-server'
+        $log_error           = '/var/log/mysqld.log'
+        $server_service_name = 'mysqld'
       }
       $basedir             = '/usr'
       $config_file         = '/etc/my.cnf'
       $datadir             = '/var/lib/mysql'
-      $log_error           = '/var/log/mysqld.log'
       $pidfile             = '/var/run/mysqld/mysqld.pid'
       $root_group          = 'root'
-      $server_service_name = 'mysqld'
       $socket              = '/var/lib/mysql/mysql.sock'
       $ssl_ca              = '/etc/mysql/cacert.pem'
       $ssl_cert            = '/etc/mysql/server-cert.pem'
